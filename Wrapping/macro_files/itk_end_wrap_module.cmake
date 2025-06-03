@@ -423,7 +423,7 @@ ${DO_NOT_WAIT_FOR_THREADS_CALLS}
         set_target_properties(${lib} PROPERTIES SUFFIX .abi3.so)
       else()
         find_package(Python)
-        if(PYTHON_FOUND)
+        if(PYTHON_FOUND AND NOT "${Python_SOABI}" STREQUAL "")
 # Graalpy Patch
           set_target_properties(${lib} PROPERTIES SUFFIX .${Python_SOABI}.so)
         else()
